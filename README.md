@@ -61,7 +61,9 @@ REFERÊNCIAS DE DIAGRAMAS E RECORTES DE MUDANÇAS
 
 # Destaques de Código
 
-`public boolean analise_derrota(boolean x){
+```
+
+public boolean analise_derrota(boolean x){
         //analisando para ver se algum bloco consegue se movimentar para a direita
         int line = 0, column = 3;
         while(line != 5){
@@ -70,26 +72,19 @@ REFERÊNCIAS DE DIAGRAMAS E RECORTES DE MUDANÇAS
                     int auxc = column + 1;
                     while(true){
                         if(matrix[line][auxc].value == 0){//o bloco da direita é nulo
-                            return true;
-                        }
+                            return true;}
                         else if(matrix[line][auxc].value == matrix[line][column].value){//bloco igual na direita
-                            return true;
-                        }
+                            return true;}
                         else if(matrix[line][auxc].value != matrix[line][column].value){
                             break;
-                        }    
-                        
-                    }
-                }
+                        }}}
                 else if(matrix[line][column].value == 0){
-                    return true;
-                }
-                column --;
-            }
+                    return true;}
+                column --;}
             line ++;
-            column = 3;
-        }
-        ...`
+            column = 3;}
+            
+```
 
 # Destaques de Pattern
 
