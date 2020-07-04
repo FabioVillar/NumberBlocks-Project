@@ -28,7 +28,7 @@ tenha sido, o jogo exibirá em sua tela o nome do player e a pontuação recorde
 
 ## Vídeo da Prévia
 
-https://drive.google.com/file/d/1nmPM_qpGrN0Ik83xvhiKUMV3qm57hYEn/view?usp=sharing
+[Vídeo da Prévia](https://drive.google.com/file/d/1nmPM_qpGrN0Ik83xvhiKUMV3qm57hYEn/view?usp=sharing)
 
 ## Vídeo do Jogo
 
@@ -36,7 +36,7 @@ https://drive.google.com/file/d/1nmPM_qpGrN0Ik83xvhiKUMV3qm57hYEn/view?usp=shari
 
 ## Slides da Prévia
 
-https://drive.google.com/file/d/1dwqOKycmCraEuQOiUXkEy_KgdId-YAaG/view?usp=sharing
+[Slides da Prévia](https://drive.google.com/file/d/1dwqOKycmCraEuQOiUXkEy_KgdId-YAaG/view?usp=sharing)
 
 ## Slides da Apresentação Final
 
