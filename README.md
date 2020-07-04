@@ -60,6 +60,9 @@ REFERÊNCIAS DE DIAGRAMAS E RECORTES DE MUDANÇAS
 
 # Destaques de Código
 
+Método da classe CBoard responsável por verificar se o player perdeu ou não o jogo, ou seja, esse método analisa se o player ainda possui algum opção de movimento não-inútil, ou seja,
+se algum bloco consegue se mover para um dos quatro sentidos, cima, baixo, esquerda, direita:
+
 ```
 
 public boolean analise_derrota(boolean x){
@@ -83,6 +86,43 @@ public boolean analise_derrota(boolean x){
             line ++;
             column = 3;}
             
+```
+
+Método da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos)
+
+```
+public void color(javax.swing.JTextField j){
+       if("".equals(j.getText())){
+           j.setBackground(new java.awt.Color(255,255,255));
+           j.setForeground(new java.awt.Color(0,0,0));
+       }
+       else if("1".equals(j.getText())){
+           j.setBackground(new java.awt.Color(255,204,204));
+           j.setForeground(new java.awt.Color(0,0,0));
+       }
+       else if("2".equals(j.getText())){
+           j.setBackground(new java.awt.Color(255,102,102));
+           j.setForeground(new java.awt.Color(0,0,0));
+       }
+       else if("3".equals(j.getText())){
+           j.setBackground(new java.awt.Color(255,51,51));
+           j.setForeground(new java.awt.Color(255,255,255));
+       }
+       ...
+
+```
+
+Método da classe frame que recebe um evento realizado na interface gráfica, e realiza uma ação com base nele: (Este código se repete para as demais opções de movimento)
+
+```
+private void right_arrowMouseClicked(java.awt.event.MouseEvent evt) {                                         
+        RightMovement x = new RightMovement();
+        verify = false;// assume que nenhum bloco se movimentou
+        verify = x.goRight(game_board, verify);
+        Movement_Done();
+        check(game_board);
+    }
+
 ```
 
 # Destaques de Pattern
