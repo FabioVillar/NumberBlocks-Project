@@ -132,6 +132,8 @@ private void right_arrowMouseClicked(java.awt.event.MouseEvent evt) {
 
 ## Diagrama do Pattern
 
+![DP](/Pattern_Diagram.png)
+
 ## Código do Pattern
 
 `<addr>`
