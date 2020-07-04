@@ -1,5 +1,8 @@
 # Projeto NumberBlocks
 
+![NB](/assets/NumberBlocks.png)
+
+
 # Descrição Resumida do Projeto/Jogo
 
   O jogo **NumberBlocks**, inspirado nos jogos "**2048**"(criado pelo italiano Gabriele Cirulli), e "**Threes**"(criado pelo designer de jogos Asher Vollmer), ambos lançados em 
