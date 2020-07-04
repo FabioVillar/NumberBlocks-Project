@@ -1,6 +1,6 @@
 # Projeto NumberBlocks
 
-![NB](/assets/GamePlay.png)
+![NB](/assets/Gameplay.png)
 
 
 # Descrição Resumida do Projeto/Jogo
