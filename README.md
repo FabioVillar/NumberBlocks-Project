@@ -35,6 +35,8 @@ tenha sido, o jogo exibirá em sua tela o nome do player e a pontuação recorde
 
 # Slides do Projeto
 
+[Slides do Projeto](https://www.canva.com/design/DAEBIWPZZhg/6TEEs9xNgcpEIKXOTQxkow/view?utm_content=DAEBIWPZZhg&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
 ## Slides da Prévia
 
 [Slides da Prévia](https://drive.google.com/file/d/1dwqOKycmCraEuQOiUXkEy_KgdId-YAaG/view?usp=sharing)
