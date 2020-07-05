@@ -226,7 +226,7 @@ código, com uma implementação melhor dos conceitos de Design Patterns para to
 
 ## Diagrama Geral de Componentes
 
-![](/DiagramaGeralComp.png)
+![](/DiagGeralComp.png)
 
 ## Componente CBoard
 
@@ -366,11 +366,90 @@ public interface IMovement {
 
 ### Interface IBoard
 
+Interface provida por qualquer componente que represente o tabuleiro.
 
+```
+public interface IBoard {
+    public boolean analise_derrota(boolean x);
+    public boolean check_matrix(boolean x);
+    public CBlock[][] getMatrix();
+}
 
 ```
 
+Método|Objetivo
+----|------------
+analise_derrota|Verificar se o player perdeu o jogo, retornando um booleano
+check_matrix|Verificar se a matriz tem alguma casa vazia, retornando um booleano
+getMatrix|Retorna a matriz que representa o tabuleiro do jogo
 
+### Interface IBlock
 
+Interface provida por qualquer componente que represente um bloco do jogo.
 
 ```
+public interface IBlock {
+    public int getValue();
+    public boolean blockToRight(IBoard board, int line, int column, boolean verify);
+    public boolean blockToLeft(IBoard board, int line, int column, boolean verify);
+    public boolean blockToUp(IBoard board, int line, int column, boolean verify);
+    public boolean blockToDown(IBoard board, int line, int column, boolean verify);
+    public CBlock[][] gerarMatriz();
+}
+
+```
+
+Método|Objetivo
+----|------------
+getValue|Retorna o valor do bloco
+blockToRight|Executa um movimento para a direita do bloco
+blockToLeft|Executa um movimento para a esquerda do bloco
+blockToUp|Executa um movimento para cima do bloco
+blockToDown|Executa um movimento para baixo do bloco
+gerarMatriz()|Gera uma matriz 5x5 de blocos nulos, que será passada para IBoard
+
+### Interface IScore
+
+Interface provida pelos componentes que regulam o placar do jogo.
+
+```
+public interface IScore {
+    public void addScore();
+    public void check_record(String player, int score);
+    public int getMovements();
+    public void setMovementsZero();
+    public int getScoreRecord();
+    public String getPlayerRecord();
+}
+
+```
+
+Método|Objetivo
+----|------------
+addScore|Aumenta em 1 o número de movimentos totais do jogo atual
+check_record|Verifica o valor do recorde vigente
+getMovements|Retorna a quantidade de movimentos totais do jogo atual
+setMovementsZero|Zera o número de movimentos totais para início de um novo jogo
+getScoreRecord|Retorna o recorde do jogo
+getPlayerRecord|Retorna o nome do recordista do jogo
+
+### Interface IMovement
+
+Interface provida pelos componentes que iniciam o movimento dos blocos do jogo.
+
+```
+public interface IMovement {
+    public boolean goRight(IBoard board, boolean verify);
+    public boolean goLeft(IBoard board, boolean verify);
+    public boolean goUp(IBoard board, boolean verify);
+    public boolean goDown(IBoard board, boolean verify);
+}
+
+```
+
+Método|Objetivo
+----|------------
+goRight|Inicia o movimento dos blocos para a direita.
+goLeft|Inicia o movimento dos blocos para a esquerda.
+goUp|Inicia o movimento dos blocos para cima.
+goDown|Inicia o movimento dos blocos para baixo.
