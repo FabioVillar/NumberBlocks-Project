@@ -168,7 +168,7 @@ public void color(javax.swing.JTextField j){
 
 ## Diagrama do Pattern
 
-![](/DesignPatternDiagram.png)
+![](/DesignPattern_Diagram.png)
 
 ## Código do Pattern
 
