@@ -1,6 +1,6 @@
 # Projeto NumberBlocks
 
-![NB](/Gameplay.png)
+![](/Gameplay.png)
 
 
 # Descrição Resumida do Projeto
@@ -132,7 +132,7 @@ private void right_arrowMouseClicked(java.awt.event.MouseEvent evt) {
 
 ## Diagrama do Pattern
 
-![DP](/Pattern_Diagram.png)
+![](/DesignPatternDiagram.png)
 
 ## Código do Pattern
 
