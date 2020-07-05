@@ -61,12 +61,12 @@ lição aprendida foi de melhorar o planejamento inicial do código a ser implem
 Design Patterns, essenciais para a codificação de um projeto como este, além de conhecer mais tipos destes padrões, pois, com um conhecimento aprofundado no assunto, a 
 codificação será facilitada, visto que os conceitos são empregados no relacionamento entre os objetos do programa. No diagrama do meu projeto, exibido mais abaixo, deixei clara
 a relação entre principalmente a classe Frame e as classes de movimento do código, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
-relação entre elas foi, inicialmente, difícil de ser visualizada, porém, durante a codificação e a partir do momento em que eu comecei a me basear nos conceitos de Design 
-Patterns, a codificação foi facilitada, e o meu entendimento sobre o próprio código ficou bem mais claro.
+relação entre elas foi, inicialmente, não muito fácil de ser visualizada, porém, durante a codificação e a partir do momento em que eu comecei a me basear nos conceitos de 
+Design Patterns, a codificação foi facilitada, e o meu entendimento sobre o próprio código ficou bem mais claro.
 
 # Destaques de Código
 
-* Método da classe CBoard responsável por verificar se o player perdeu o jogo, ou seja, esse método analisa se o player ainda possui algum opção de movimento não-inútil, que
+* Método do componente CBoard responsável por verificar se o player perdeu o jogo, ou seja, esse método analisa se o player ainda possui algum opção de movimento não-inútil, que
 ocorre quando que algum bloco consegue se mover para um dos quatro sentidos possíveis(cima, baixo, esquerda, direita):
 
 ```
@@ -93,20 +93,20 @@ public boolean analise_derrota(boolean x){
             column = 3;}
             
 ```
-* Método da classe Frame que modifica o tabuleiro do jogo (objeto do tipo CBoard), de acordo com as consequências do último movimento realizado pelo player:
+* Método da classe Frame que modifica o tabuleiro do jogo (proveniente da interface IBoard), de acordo com as consequências do último movimento realizado pelo player:
 
 ```
 
- public void check(CBoard board){
+ public void check(IBoard board){
         int line = 0, column = 0, aux = 0;
         String vetor[] = new String[25];
         while(line != 5){
             while(column != 5){
-                if(board.matrix[line][column].value == 0){
+                if(board.getMatrix()[line][column].value == 0){
                     vetor[aux] = "";
                 }
                 else 
-                    vetor[aux] = Integer.toString(board.matrix[line][column].value);
+                    vetor[aux] = Integer.toString(board.getMatrix()[line][column].value);
                 column ++;
                 aux ++;
             }
@@ -132,6 +132,8 @@ public boolean analise_derrota(boolean x){
         color(jTextField6);
         color(jTextField7);
         color(jTextField8);
+        color(jTextField9);
+        color(jTextField10);
         ...
     }
 
