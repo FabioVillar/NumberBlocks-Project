@@ -35,13 +35,13 @@ tenha sido, o jogo exibirá em sua tela o nome do player e a pontuação recorde
 
 # Slides do Projeto
 
-[Slides do Projeto](https://www.canva.com/design/DAEBIWPZZhg/6TEEs9xNgcpEIKXOTQxkow/view?utm_content=DAEBIWPZZhg&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
-
 ## Slides da Prévia
 
 [Slides da Prévia](https://drive.google.com/file/d/1dwqOKycmCraEuQOiUXkEy_KgdId-YAaG/view?usp=sharing)
 
 ## Slides da Apresentação Final
+
+[Slides do Projeto](https://www.canva.com/design/DAEBIWPZZhg/6TEEs9xNgcpEIKXOTQxkow/view?utm_content=DAEBIWPZZhg&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 ## Relatório de Evolução
 
@@ -69,8 +69,8 @@ Design Patterns, a codificação foi facilitada, e o meu entendimento sobre o pr
 
 # Destaques de Código
 
-* Método do componente CBoard responsável por verificar se o player perdeu o jogo, ou seja, esse método analisa se o player ainda possui algum opção de movimento não-inútil, que
-ocorre quando que algum bloco consegue se mover para um dos quatro sentidos possíveis(cima, baixo, esquerda, direita):
+* Método "analise_derrota" do componente CBoard responsável por verificar se o player perdeu o jogo, ou seja, esse método analisa se o player ainda possui algum opção de 
+movimento não-inútil, que ocorre quando que algum bloco consegue se mover para um dos quatro sentidos possíveis(cima, baixo, esquerda, direita):
 
 ```
 
@@ -96,7 +96,7 @@ public boolean analise_derrota(boolean x){
             column = 3;}
             
 ```
-* Método da classe Frame que modifica o tabuleiro do jogo (proveniente da interface IBoard), de acordo com as consequências do último movimento realizado pelo player:
+* Método "check" da classe Frame que modifica o tabuleiro do jogo (proveniente da interface IBoard), de acordo com as consequências do último movimento realizado pelo player:
 
 ```
 
@@ -143,7 +143,8 @@ public boolean analise_derrota(boolean x){
 ```
 
 
-* Método da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método atua em conjunto com o exibido acima)
+* Método "color" da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método 
+atua em conjunto com o exibido acima)
 
 ```
 public void color(javax.swing.JTextField j){
@@ -166,6 +167,26 @@ public void color(javax.swing.JTextField j){
        ...
 
 ```
+* Método "goRight" do componente CMovement que é responsável por iniciar a movimentação dos blocos. Possui outros três métodos similares a ele.
+
+```
+public boolean goRight(IBoard board, boolean verify) {
+        int line = 0, column = 3;
+        while(line != 5){
+            while(column != -1){
+                if(board.getMatrix()[line][column].value!=0){//se for um ValuableBlock
+                    verify = board.getMatrix()[line][column].blockToRight(board, line, column, verify);
+                }
+                column --;
+            }
+            line ++;
+            column = 3;
+        } 
+       return verify;
+    }
+
+```
+
 
 # Destaques de Pattern
 
