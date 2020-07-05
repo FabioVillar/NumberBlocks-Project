@@ -211,12 +211,15 @@ UpMovement e DownMovement), sendo que essas quatro classes implementam a interfa
 componentes que representam as "arrows" da interface gráfica, um evento é realizado, e este é percebido pela classe Frame. Esta, por sua vez, possui um método para cada uma
 das quatro possibilidades de movimento, e, dependendo de qual o player escolheu, uma das quatro classes de movimento será chamada pelo código, e receberá a informação do que 
 aconteceu com a interface gráfica. Elas, por sua vez, também empregam métodos que envolvem outras classes, em um processo que se repete todas as vezes em que o player executa um 
-movimento. 
+movimento. Uma das vantagens dessa pattern é a possibilidade de reuso das classes de movimento, não havendo necessidade de criar novos objetos para elas a cada vez que o player
+executasse um movimento, o que aumentaria o gasto de memória computacional.
 
 
 # Conclusões e Trabalhos Futuros
 
-INSERIR TEXTO AQUI
+* Sobre o projeto, penso que melhorias podem ser empregadas em seu funcionamento, como por exemplo melhorar a jogabilidade implementando o conceito de KeyEvents junto com o de
+KeyListeners, que permitiriam o uso das "arrows" do keyboard em substituição aos componentes representando botões na interface gráfica, e também uma melhor estruturação do 
+código, com uma implementação melhor dos conceitos de Design Patterns para torná-lo mais organizado e eficiente.
 
 # Documentação dos Componentes
 
