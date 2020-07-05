@@ -246,7 +246,7 @@ Ficha técnica
 
 item|detalhamento
 ----|------------
-Classe|
+Classe|src/src/CBoard.java
 Autores|Fábio Santos Villar
 Interfaces|IBoard
 
@@ -278,7 +278,7 @@ Ficha técnica
 
 item|detalhamento
 ----|------------
-Classe|
+Classe|src/src/CBlock.java
 Autores|Fábio Santos Villar
 Interfaces|IBlock
 
@@ -312,7 +312,7 @@ Ficha técnica
 
 item|detalhamento
 ----|------------
-Classe|
+Classe|src/src/CScore.java
 Autores|Fábio Santos Villar
 Interfaces|IScore
 
@@ -346,7 +346,7 @@ Ficha técnica
 
 item|detalhamento
 ----|------------
-Classe|
+Classe|src/src/CMovement.java
 Autores|Fábio Santos Villar
 Interfaces|IMovement
 
