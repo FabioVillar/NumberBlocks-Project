@@ -31,6 +31,8 @@ tenha sido, o jogo exibirá em sua tela o nome do player e a pontuação recorde
 
 ## Vídeo do Jogo
 
+[Vídeo do Jogo](https://drive.google.com/file/d/1SrzzeenUZkKZO-4HgzD2zRj7U2ilGjOc/view?usp=sharing)
+
 # Slides do Projeto
 
 ## Slides da Prévia
