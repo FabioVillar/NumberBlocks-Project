@@ -223,6 +223,8 @@ código, com uma implementação melhor dos conceitos de Design Patterns para to
 
 ## Diagrama Geral do Projeto
 
+![](/DiagramaProjeto.png)
+
 ## Diagrama Geral de Componentes
 
 ![](/DiagGeralComp.png)
@@ -247,7 +249,7 @@ Interfaces|IBoard
 
 Interfaces associadas a esse componente:
 
-![](/.png)
+![](/ImplementacaoBoard.png)
 
 Interface agregadora do componente em Java:
 
@@ -279,7 +281,7 @@ Interfaces|IBlock
 
 Interfaces associadas a esse componente:
 
-![](/.png)
+![](/ImplementacaoBlock.png)
 
 Interface agregadora do componente em Java:
 
@@ -313,7 +315,7 @@ Interfaces|IScore
 
 Interfaces associadas a esse componente:
 
-![](/.png)
+![](/ImplementacaoScore.png)
 
 Interface agregadora do componente em Java:
 
@@ -347,7 +349,7 @@ Interfaces|IMovement
 
 Interfaces associadas a esse componente:
 
-![](/.png)
+![](/ImplementacaoMovement.png)
 
 Interface agregadora do componente em Java:
 
