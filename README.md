@@ -60,7 +60,7 @@ com uma série de dificuldades, como por exemplo muitos erros inesperados e "bug
 lição aprendida foi de melhorar o planejamento inicial do código a ser implementado, para minimizar a existência de bugs e erros, e também de aprender mais sobre os conceitos de 
 Design Patterns, essenciais para a codificação de um projeto como este, além de conhecer mais tipos destes padrões, pois, com um conhecimento aprofundado no assunto, a 
 codificação será facilitada, visto que os conceitos são empregados no relacionamento entre os objetos do programa. No diagrama do meu projeto, exibido mais abaixo, deixei clara
-a relação entre principalmente a classe Frame e as classes de movimento do código, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
+a relação entre principalmente o componente Frame e as classes de movimento do código, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
 relação entre elas foi, inicialmente, não muito fácil de ser visualizada, porém, durante a codificação e a partir do momento em que eu comecei a me basear nos conceitos de 
 Design Patterns, a codificação foi facilitada, e o meu entendimento sobre o próprio código ficou bem mais claro.
 
@@ -93,7 +93,7 @@ public boolean analise_derrota(boolean x){
             column = 3;}
             
 ```
-* Método da classe Frame que modifica o tabuleiro do jogo (proveniente da interface IBoard), de acordo com as consequências do último movimento realizado pelo player:
+* Método do componente Frame que modifica o tabuleiro do jogo (proveniente da interface IBoard), de acordo com as consequências do último movimento realizado pelo player:
 
 ```
 
@@ -140,7 +140,7 @@ public boolean analise_derrota(boolean x){
 ```
 
 
-* Método da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método atua em conjunto com o exibido acima)
+* Método do componente Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método atua em conjunto com o exibido acima)
 
 ```
 public void color(javax.swing.JTextField j){
@@ -175,7 +175,7 @@ public void color(javax.swing.JTextField j){
 ```
 public class Frame extends javax.swing.JFrame {
   ...
-  RightMovement r = new RightMovement();
+  IMovement r = new RightMovement();
   ...
   private void right_arrowMouseClicked(java.awt.event.MouseEvent evt) {                                         
         verify = false;// assume que nenhum bloco se movimentou
@@ -188,14 +188,12 @@ public class Frame extends javax.swing.JFrame {
 ```
 
 ```
-public class RightMovement implements IMovement{
-    @Override
-    public boolean goRight(CBoard board, boolean verify){
+public boolean goRight(IBoard board, boolean verify){
         int line = 0, column = 3;
         while(line != 5){
             while(column != -1){
-                if(board.matrix[line][column].value!=0){//se for um ValuableBlock
-                    verify = board.matrix[line][column].blockToRight(board, line, column, verify);
+                if(board.getMatrix()[line][column].value!=0){//se for um ValuableBlock
+                    verify = board.getMatrix()[line][column].blockToRight(board, line, column, verify);
                 }
                 column --;
             }
@@ -204,17 +202,15 @@ public class RightMovement implements IMovement{
         } 
        return verify;
     }
-    ...
-}
 
 ```
-* O pattern deste código se baseia na combinação da classe Frame com as classes empregadas para realizar os movimentos do tabuleiro (classes RightMovement, LeftMovement,
+* O pattern deste código se baseia na combinação do componente Frame com as classes empregadas para realizar os movimentos do tabuleiro (classes RightMovement, LeftMovement,
 UpMovement e DownMovement), sendo que essas quatro classes implementam a interface IMovement. Desta maneira, cada vez que o player executa um movimento ao apertar em um dos
-componentes que representam as "arrows" da interface gráfica, um evento é realizado, e este é percebido pela classe Frame. Esta, por sua vez, possui um método para cada uma
-das quatro possibilidades de movimento, e, dependendo de qual o player escolheu, uma das quatro classes de movimento será chamada pelo código, e receberá a informação do que 
-aconteceu com a interface gráfica. Elas, por sua vez, também empregam métodos que envolvem outras classes, em um processo que se repete todas as vezes em que o player executa um 
-movimento. Uma das vantagens dessa pattern é a possibilidade de reuso das classes de movimento, não havendo necessidade de criar novos objetos para elas a cada vez que o player
-executasse um movimento, o que aumentaria o gasto de memória computacional.
+componentes que representam as "arrows" da interface gráfica, um evento é realizado, e este é percebido pelo componente Frame. Esta, por sua vez, possui um método para cada uma
+das quatro possibilidades de movimento, e, dependendo de qual o player escolheu, uma das quatro classes de movimento será chamada pela interface IMovement, e receberá a 
+informação do que aconteceu com a interface gráfica. Elas, por sua vez, também empregam métodos que envolvem outras interfaces e classes, em um processo que se repete todas as 
+vezes em que o player executa um movimento. Uma das vantagens dessa pattern é a possibilidade de reuso das classes de movimento, não havendo necessidade de criar novos objetos 
+para elas a cada vez que o player executasse um movimento, o que aumentaria o gasto de memória computacional.
 
 
 # Conclusões e Trabalhos Futuros
