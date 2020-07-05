@@ -60,8 +60,8 @@ com uma série de dificuldades, como por exemplo muitos erros inesperados e "bug
 lição aprendida foi de melhorar o planejamento inicial do código a ser implementado, para minimizar a existência de bugs e erros, e também de aprender mais sobre os conceitos de 
 Design Patterns, essenciais para a codificação de um projeto como este, além de conhecer mais tipos destes padrões, pois, com um conhecimento aprofundado no assunto, a 
 codificação será facilitada, visto que os conceitos são empregados no relacionamento entre os objetos do programa. No diagrama do meu projeto, exibido mais abaixo, deixei clara
-a relação entre principalmente o componente Frame e as classes de movimento do código, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
-relação entre elas foi, inicialmente, não muito fácil de ser visualizada, porém, durante a codificação e a partir do momento em que eu comecei a me basear nos conceitos de 
+a relação entre principalmente o componente Frame e o componente CMovement, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
+relação entre eles foi, inicialmente, não muito fácil de ser visualizada, porém, durante a codificação e a partir do momento em que eu comecei a me basear nos conceitos de 
 Design Patterns, a codificação foi facilitada, e o meu entendimento sobre o próprio código ficou bem mais claro.
 
 # Destaques de Código
@@ -168,21 +168,21 @@ public void color(javax.swing.JTextField j){
 
 ## Diagrama do Pattern
 
-![](/DesignPattern_Diagram.png)
+![](/DesPattDiagram.png)
 
 ## Código do Pattern
 
 ```
 public class Frame extends javax.swing.JFrame {
   ...
-  IMovement r = new RightMovement();
+  IMovement mov = new CMovement();
   ...
   private void right_arrowMouseClicked(java.awt.event.MouseEvent evt) {                                         
         verify = false;// assume que nenhum bloco se movimentou
-        verify = r.goRight(game_board, verify);
+        verify = mov.goRight(game_board, verify);
         Movement_Done();
         check(game_board);
-    }
+    }  
    ...
 
 ```
@@ -204,13 +204,12 @@ public boolean goRight(IBoard board, boolean verify){
     }
 
 ```
-* O pattern deste código se baseia na combinação do componente Frame com as classes empregadas para realizar os movimentos do tabuleiro (classes RightMovement, LeftMovement,
-UpMovement e DownMovement), sendo que essas quatro classes implementam a interface IMovement. Desta maneira, cada vez que o player executa um movimento ao apertar em um dos
-componentes que representam as "arrows" da interface gráfica, um evento é realizado, e este é percebido pelo componente Frame. Esta, por sua vez, possui um método para cada uma
-das quatro possibilidades de movimento, e, dependendo de qual o player escolheu, uma das quatro classes de movimento será chamada pela interface IMovement, e receberá a 
-informação do que aconteceu com a interface gráfica. Elas, por sua vez, também empregam métodos que envolvem outras interfaces e classes, em um processo que se repete todas as 
-vezes em que o player executa um movimento. Uma das vantagens dessa pattern é a possibilidade de reuso das classes de movimento, não havendo necessidade de criar novos objetos 
-para elas a cada vez que o player executasse um movimento, o que aumentaria o gasto de memória computacional.
+* O pattern deste código se baseia na combinação do componente Frame com o componente CMovement, que implementa a interface IMovement. Desta maneira, cada vez que o player 
+executa um movimento ao apertar em um dos componentes que representam as "arrows" da interface gráfica, um evento é realizado, e este é percebido pelo componente Frame. Esta, 
+por sua vez, possui um método para cada uma das quatro possibilidades de movimento, e, dependendo de qual o player escolheu, um dos quatro métodos de movimento de CMovement será 
+chamado pela interface IMovement, e receberá a informação do que aconteceu com a interface gráfica. Os métodos, por sua vez, também empregam outros métodos que envolvem outras 
+interfaces e classes, em um processo que se repete todas as vezes em que o player executa um movimento. Uma das vantagens dessa pattern é a possibilidade de reuso da classe de 
+movimento, não havendo necessidade de criar um novo objeto para ela a cada vez que o player executasse um movimento, o que aumentaria o gasto de memória computacional.
 
 
 # Conclusões e Trabalhos Futuros
