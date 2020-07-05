@@ -458,3 +458,11 @@ goDown|Inicia o movimento dos blocos para baixo.
 # Plano de Exceções
 
 ## Diagrama da hierarquia de exceções
+
+![](/Exception.png)
+
+Classe|Descrição
+----|------------
+Exception|Engloba todas as exceções
+NoMovementException|Indica que o movimento é "inútil", ou seja, que não fez nenhum bloco se mover
+
