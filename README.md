@@ -5,10 +5,10 @@
 
 # Descrição Resumida do Projeto
 
-O jogo **NumberBlocks**, inspirado nos jogos "**2048**"(criado pelo italiano Gabriele Cirulli), e "**Threes**"(criado pelo designer de jogos Asher Vollmer), ambos lançados em 
+* O jogo **NumberBlocks**, inspirado nos jogos "**2048**"(criado pelo italiano Gabriele Cirulli), e "**Threes**"(criado pelo designer de jogos Asher Vollmer), ambos lançados em 
 2014, é um jogo do gênero "Puzzle", em que o player interage com blocos numerados em um tabuleiro 5x5, com o **objetivo de conseguir o maior número de movimentos no tabuleiro**. 
 
-O jogo se inicia com apenas um único bloco no tabuleiro, tendo este bloco o valor **1**. O player **sempre** tem apenas 4 opções para movimentar o tabuleiro: **ou para cima,
+* O jogo se inicia com apenas um único bloco no tabuleiro, tendo este bloco o valor **1**. O player **sempre** tem apenas 4 opções para movimentar o tabuleiro: **ou para cima,
 ou para baixo, ou para a direita, ou para a esquerda**. Os blocos do tabuleiro irão se mover na direção desejada pelo player, e, cada vez que o player executar um movimento,
 dois novos blocos serão criados e surgirão em casas aleatórias (desde que desocupadas) do tabuleiro 5x5. Após o movimento, o primeiro bloco criado terá valor **1**, e o segundo
 terá 75% de chance de ser de valor **1**, e 25% de chance de ser de valor **2**. **Dois blocos se "juntam" se possuírem o mesmo valor e estiverem na mesma direção** do movimento
@@ -16,7 +16,7 @@ executado pelo player. Por exemplo, se em uma linha do tabuleiro estiverem prese
 esquerda (mesma direção da linha, horizontal), os dois blocos irão se "juntar" em um único bloco de valor 1 (uma) unidade superior, ou seja, neste exemplo, seria criado um bloco
 de valor **4**. 
 
-O jogo se encerra quando o **player não tem mais opções de movimentos válidos** (ou não-inúteis, ou seja, movimentos em que pelo menos um bloco se move no tabuleiro), e,
+* O jogo se encerra quando o **player não tem mais opções de movimentos válidos** (ou não-inúteis, ou seja, movimentos em que pelo menos um bloco se move no tabuleiro), e,
 quando isso acontece, a pontuação, que consiste no número de movimentos executados pelo player é comparada ao recorde vigente para ver se este último foi batido ou não. Caso
 tenha sido, o jogo exibirá em sua tela o nome do player e a pontuação recorde obtida.
 
@@ -42,7 +42,7 @@ tenha sido, o jogo exibirá em sua tela o nome do player e a pontuação recorde
 
 ## Relatório de Evolução
 
-Desde o início o projeto era inspirado nos jogos "**2048**" e "**Threes**", porém algumas ideias de características iniciais do jogo foram alteradas com o passar do tempo.
+* Desde o início o projeto era inspirado nos jogos "**2048**" e "**Threes**", porém algumas ideias de características iniciais do jogo foram alteradas com o passar do tempo.
 Assim como o "**2048**", o projeto incluiria um tabuleiro 4x4, porém, por uma questão de diferenciação e de uma possível melhor jogabilidade, decidi ampliar o tabuleiro 
 para um 5x5, ou seja, com 9 casas a mais que a ideia inicial. Outras mudanças foram implementadas com o desenvolvimento do projeto, como o uso de um bloco de valor inicial
 **1** em vez de **5**, como visto no vídeo e nos slides da prévia, e uma substituição na dinâmica da "fusão" entre dois blocos: inicialmente, dois blocos que se "juntassem"
@@ -53,11 +53,11 @@ para se alcançar um número alto de movimentos. Desta forma, decidi implementar
 possibilidade de 75% de o jogo criar dois blocos iguais e de valor **1**, e 25% dele criar dois blocos, mas um com valor **1** e outro com valor **2**, sendo que esta última
 possibilidade torna o jogo mais difícil, vide a dificuldade maior em se "juntar" dois blocos como consequência disto.
 
-A principal dificuldade do projeto foi de "dominar" o uso da interface gráfica (Java GUI), visto que era um conceito totalmente novo para mim e, portanto, gastei bastante tempo
-aprendendo a implementá-la da melhor maneira possível e fazê-la funcionar juntamente com o restante do código. Além disso, a criação de um "relacionamento" entre os objetos
-foi inicialmente difícil de ser visualizado para mim, mas, com o passar do tempo, consegui aprimorar a relação entre eles. Durante a codificação do projeto, deparei-me com uma
-série de dificuldades, como por exemplo muitos erros inesperados e "bugs" no código, que só foram solucionados após muitos testes e análises do projeto. Portanto, uma lição 
-aprendida foi de melhorar o planejamento inicial do código a ser implementado, para minimizar a existência de bugs e erros, e também de aprender mais sobre os conceitos de 
+* A principal dificuldade do projeto foi de "dominar" o uso da interface gráfica (Java GUI), visto que era um conceito totalmente novo para mim e, portanto, gastei bastante 
+tempo aprendendo a implementá-la da melhor maneira possível e fazê-la funcionar juntamente com o restante do código. Além disso, a criação de um "relacionamento" entre os 
+objetos foi inicialmente difícil de ser visualizado para mim, mas, com o passar do tempo, consegui aprimorar a relação entre eles. Durante a codificação do projeto, deparei-me 
+com uma série de dificuldades, como por exemplo muitos erros inesperados e "bugs" no código, que só foram solucionados após muitos testes e análises do projeto. Portanto, uma 
+lição aprendida foi de melhorar o planejamento inicial do código a ser implementado, para minimizar a existência de bugs e erros, e também de aprender mais sobre os conceitos de 
 Design Patterns, essenciais para a codificação de um projeto como este, além de conhecer mais tipos destes padrões, pois, com um conhecimento aprofundado no assunto, a 
 codificação será facilitada, visto que os conceitos são empregados no relacionamento entre os objetos do programa. No diagrama do meu projeto, exibido mais abaixo, deixei clara
 a relação entre principalmente a classe Frame e as classes de movimento do código, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
@@ -66,8 +66,8 @@ Patterns, a codificação foi facilitada, e o meu entendimento sobre o próprio 
 
 # Destaques de Código
 
-* Método da classe CBoard responsável por verificar se o player perdeu ou não o jogo, ou seja, esse método analisa se o player ainda possui algum opção de movimento não-inútil, 
-ou seja, se algum bloco consegue se mover para um dos quatro sentidos, cima, baixo, esquerda, direita:
+* Método da classe CBoard responsável por verificar se o player perdeu o jogo, ou seja, esse método analisa se o player ainda possui algum opção de movimento não-inútil, que
+ocorre quando que algum bloco consegue se mover para um dos quatro sentidos possíveis(cima, baixo, esquerda, direita):
 
 ```
 
@@ -93,7 +93,7 @@ public boolean analise_derrota(boolean x){
             column = 3;}
             
 ```
-* Método da classe Frame que modifica o tabuleiro do jogo (objeto do tipo CBoard), de acordo com as consequências do último movimento realizado pelo Player:
+* Método da classe Frame que modifica o tabuleiro do jogo (objeto do tipo CBoard), de acordo com as consequências do último movimento realizado pelo player:
 
 ```
 
@@ -138,7 +138,7 @@ public boolean analise_derrota(boolean x){
 ```
 
 
-* Método da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método atua em conjunto com o disposto acima)
+* Método da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método atua em conjunto com o exibido acima)
 
 ```
 public void color(javax.swing.JTextField j){
@@ -206,6 +206,13 @@ public class RightMovement implements IMovement{
 }
 
 ```
+* O pattern deste código se baseia na combinação da classe Frame com as classes empregadas para realizar os movimentos do tabuleiro (classes RightMovement, LeftMovement,
+UpMovement e DownMovement), sendo que essas quatro classes implementam a interface IMovement. Desta maneira, cada vez que o player executa um movimento ao apertar em um dos
+componentes que representam as "arrows" da interface gráfica, um evento é realizado, e este é percebido pela classe Frame. Esta, por sua vez, possui um método para cada uma
+das quatro possibilidades de movimento, e, dependendo de qual o player escolheu, uma das quatro classes de movimento será chamada pelo código, e receberá a informação do que 
+aconteceu com a interface gráfica. Elas, por sua vez, também empregam métodos que envolvem outras classes, em um processo que se repete todas as vezes em que o player executa um 
+movimento. 
+
 
 # Conclusões e Trabalhos Futuros
 
