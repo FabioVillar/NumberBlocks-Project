@@ -227,3 +227,148 @@ código, com uma implementação melhor dos conceitos de Design Patterns para to
 ## Diagrama Geral de Componentes
 
 ![](/DiagramaGeralComponentes.png)
+
+## Componente CBoard
+
+Responsável por "cuidar" do tabuleiro do jogo. Possui uma matriz 5x5 de objetos do tipo CBlock, matriz esta que forma o tabuleiro do jogo. Além disso, possui um método 
+(analise_derrota) que faz uma análise em todo o tabuleiro para determinar se o player perdeu ou não o jogo, fora outro método (check_matrix), que funciona como uma etapa 
+anterior ao método "analise_derrota", ambos com o intuito de verificar se o player segue ou não no jogo.
+
+![](/CBoard.png)
+
+Ficha técnica
+
+item|detalhamento
+----|------------
+Classe|
+Autores|Fábio Santos Villar
+Interfaces|IBoard
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![](/.png)
+
+Interface agregadora do componente em Java:
+
+```
+public interface IBoard {
+    public boolean analise_derrota(boolean x);
+    public boolean check_matrix(boolean x);
+    public CBlock[][] getMatrix();
+}
+
+```
+
+## Componente CBlock
+
+Representa cada bloco do jogo, possuindo um atributo, o "value", para indicar o valor do bloco. Além disso, possui métodos de realização de movimentos, chamados por
+CMovement.
+
+![](/CBlock.png)
+
+Ficha técnica
+
+item|detalhamento
+----|------------
+Classe|
+Autores|Fábio Santos Villar
+Interfaces|IBlock
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![](/.png)
+
+Interface agregadora do componente em Java:
+
+```
+public interface IBlock {
+    public int getValue();
+    public boolean blockToRight(IBoard board, int line, int column, boolean verify);
+    public boolean blockToLeft(IBoard board, int line, int column, boolean verify);
+    public boolean blockToUp(IBoard board, int line, int column, boolean verify);
+    public boolean blockToDown(IBoard board, int line, int column, boolean verify);
+    public CBlock[][] gerarMatriz();
+}
+
+```
+
+## Componente CScore
+
+Responsável pelo controle do "placar" do jogo, ou seja, do número de movimentos conseguidos até então, além de salvar o nome e a pontuação recordes.
+
+![](/CScore.png)
+
+Ficha técnica
+
+item|detalhamento
+----|------------
+Classe|
+Autores|Fábio Santos Villar
+Interfaces|IScore
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![](/.png)
+
+Interface agregadora do componente em Java:
+
+```
+public interface IScore {
+    public void addScore();
+    public void check_record(String player, int score);
+    public int getMovements();
+    public void setMovementsZero();
+    public int getScoreRecord();
+    public String getPlayerRecord();
+}
+
+```
+
+## Componente CMovement
+
+Responsável por iniciar o processo de movimentação do tabuleiro, chamando métodos do componente CBlock de acordo com o movimento realizado pelo player.
+
+![](/CMovement.png)
+
+Ficha técnica
+
+item|detalhamento
+----|------------
+Classe|
+Autores|Fábio Santos Villar
+Interfaces|IMovement
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![](/.png)
+
+Interface agregadora do componente em Java:
+
+```
+public interface IMovement {
+    public boolean goRight(IBoard board, boolean verify);
+    public boolean goLeft(IBoard board, boolean verify);
+    public boolean goUp(IBoard board, boolean verify);
+    public boolean goDown(IBoard board, boolean verify);
+}
+
+```
+
+## Detalhamento das Interfaces
+
+### Interface IBoard
+
+```
+
+
+
+
+```
