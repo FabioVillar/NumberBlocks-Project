@@ -54,12 +54,15 @@ possibilidade de 75% de o jogo criar dois blocos iguais e de valor **1**, e 25% 
 possibilidade torna o jogo mais difícil, vide a dificuldade maior em se "juntar" dois blocos como consequência disto.
 
 A principal dificuldade do projeto foi de "dominar" o uso da interface gráfica (Java GUI), visto que era um conceito totalmente novo para mim e, portanto, gastei bastante tempo
-aprendendo a implementá-la da melhor maneira possível. Durante a codificação do projeto, deparei-me com uma série de dificuldades, como por exemplo muitos erros inesperados e
-"bugs" no código, que só foram solucionados após muitos testes e análises do projeto. Portanto, uma lição aprendida foi de melhorar a organização do código antes mesmo de 
-implementá-lo, e fazer um uso maior de anotações e similares para, desta forma, diminuir o número de "bugs" no código do jogo. 
-
-REFERÊNCIAS DE DIAGRAMAS E RECORTES DE MUDANÇAS
-
+aprendendo a implementá-la da melhor maneira possível e fazê-la funcionar juntamente com o restante do código. Além disso, a criação de um "relacionamento" entre os objetos
+foi inicialmente difícil de ser visualizado para mim, mas, com o passar do tempo, consegui aprimorar a relação entre eles. Durante a codificação do projeto, deparei-me com uma
+série de dificuldades, como por exemplo muitos erros inesperados e "bugs" no código, que só foram solucionados após muitos testes e análises do projeto. Portanto, uma lição 
+aprendida foi de melhorar o planejamento inicial do código a ser implementado, para minimizar a existência de bugs e erros, e também de aprender mais sobre os conceitos de 
+Design Patterns, essenciais para a codificação de um projeto como este, além de conhecer mais tipos destes padrões, pois, com um conhecimento aprofundado no assunto, a 
+codificação será facilitada, visto que os conceitos são empregados no relacionamento entre os objetos do programa. No diagrama do meu projeto, exibido mais abaixo, deixei clara
+a relação entre principalmente a classe Frame e as classes de movimento do código, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
+relação entre elas foi, inicialmente, difícil de ser visualizada, porém, durante a codificação e a partir do momento em que eu comecei a me basear nos conceitos de Design 
+Patterns, a codificação foi facilitada, e o meu entendimento sobre o próprio código ficou bem mais claro.
 
 # Destaques de Código
 
