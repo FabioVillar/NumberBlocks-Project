@@ -3,7 +3,7 @@
 ![NB](/Gameplay.png)
 
 
-# Descrição Resumida do Projeto/Jogo
+# Descrição Resumida do Projeto
 
   O jogo **NumberBlocks**, inspirado nos jogos "**2048**"(criado pelo italiano Gabriele Cirulli), e "**Threes**"(criado pelo designer de jogos Asher Vollmer), ambos lançados em 
 2014, é um jogo do gênero "Puzzle", em que o player interage com blocos numerados em um tabuleiro 5x5, com o **objetivo de conseguir o maior número de movimentos no tabuleiro**. 
