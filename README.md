@@ -5,10 +5,10 @@
 
 # Descrição Resumida do Projeto
 
-  O jogo **NumberBlocks**, inspirado nos jogos "**2048**"(criado pelo italiano Gabriele Cirulli), e "**Threes**"(criado pelo designer de jogos Asher Vollmer), ambos lançados em 
+O jogo **NumberBlocks**, inspirado nos jogos "**2048**"(criado pelo italiano Gabriele Cirulli), e "**Threes**"(criado pelo designer de jogos Asher Vollmer), ambos lançados em 
 2014, é um jogo do gênero "Puzzle", em que o player interage com blocos numerados em um tabuleiro 5x5, com o **objetivo de conseguir o maior número de movimentos no tabuleiro**. 
 
-  O jogo se inicia com apenas um único bloco no tabuleiro, tendo este bloco o valor **1**. O player **sempre** tem apenas 4 opções para movimentar o tabuleiro: **ou para cima,
+O jogo se inicia com apenas um único bloco no tabuleiro, tendo este bloco o valor **1**. O player **sempre** tem apenas 4 opções para movimentar o tabuleiro: **ou para cima,
 ou para baixo, ou para a direita, ou para a esquerda**. Os blocos do tabuleiro irão se mover na direção desejada pelo player, e, cada vez que o player executar um movimento,
 dois novos blocos serão criados e surgirão em casas aleatórias (desde que desocupadas) do tabuleiro 5x5. Após o movimento, o primeiro bloco criado terá valor **1**, e o segundo
 terá 75% de chance de ser de valor **1**, e 25% de chance de ser de valor **2**. **Dois blocos se "juntam" se possuírem o mesmo valor e estiverem na mesma direção** do movimento
@@ -16,7 +16,7 @@ executado pelo player. Por exemplo, se em uma linha do tabuleiro estiverem prese
 esquerda (mesma direção da linha, horizontal), os dois blocos irão se "juntar" em um único bloco de valor 1 (uma) unidade superior, ou seja, neste exemplo, seria criado um bloco
 de valor **4**. 
 
-  O jogo se encerra quando o **player não tem mais opções de movimentos válidos** (ou não-inúteis, ou seja, movimentos em que pelo menos um bloco se move no tabuleiro), e,
+O jogo se encerra quando o **player não tem mais opções de movimentos válidos** (ou não-inúteis, ou seja, movimentos em que pelo menos um bloco se move no tabuleiro), e,
 quando isso acontece, a pontuação, que consiste no número de movimentos executados pelo player é comparada ao recorde vigente para ver se este último foi batido ou não. Caso
 tenha sido, o jogo exibirá em sua tela o nome do player e a pontuação recorde obtida.
 
@@ -66,8 +66,8 @@ Patterns, a codificação foi facilitada, e o meu entendimento sobre o próprio 
 
 # Destaques de Código
 
-Método da classe CBoard responsável por verificar se o player perdeu ou não o jogo, ou seja, esse método analisa se o player ainda possui algum opção de movimento não-inútil, ou seja,
-se algum bloco consegue se mover para um dos quatro sentidos, cima, baixo, esquerda, direita:
+* Método da classe CBoard responsável por verificar se o player perdeu ou não o jogo, ou seja, esse método analisa se o player ainda possui algum opção de movimento não-inútil, 
+ou seja, se algum bloco consegue se mover para um dos quatro sentidos, cima, baixo, esquerda, direita:
 
 ```
 
@@ -93,8 +93,52 @@ public boolean analise_derrota(boolean x){
             column = 3;}
             
 ```
+* Método da classe Frame que modifica o tabuleiro do jogo (objeto do tipo CBoard), de acordo com as consequências do último movimento realizado pelo Player:
 
-Método da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos)
+```
+
+ public void check(CBoard board){
+        int line = 0, column = 0, aux = 0;
+        String vetor[] = new String[25];
+        while(line != 5){
+            while(column != 5){
+                if(board.matrix[line][column].value == 0){
+                    vetor[aux] = "";
+                }
+                else 
+                    vetor[aux] = Integer.toString(board.matrix[line][column].value);
+                column ++;
+                aux ++;
+            }
+            column = 0;
+            line ++;
+        }
+        jTextField1.setText(vetor[0]);
+        jTextField2.setText(vetor[1]);
+        jTextField3.setText(vetor[2]);
+        jTextField4.setText(vetor[3]);
+        jTextField5.setText(vetor[4]);
+        jTextField6.setText(vetor[5]);
+        jTextField7.setText(vetor[6]);
+        jTextField8.setText(vetor[7]);
+        jTextField9.setText(vetor[8]);
+        jTextField10.setText(vetor[9]);
+        ...
+        color(jTextField1);
+        color(jTextField2);
+        color(jTextField3);
+        color(jTextField4);
+        color(jTextField5);
+        color(jTextField6);
+        color(jTextField7);
+        color(jTextField8);
+        ...
+    }
+
+```
+
+
+* Método da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método atua em conjunto com o disposto acima)
 
 ```
 public void color(javax.swing.JTextField j){
@@ -118,19 +162,6 @@ public void color(javax.swing.JTextField j){
 
 ```
 
-Método da classe frame que recebe um evento realizado na interface gráfica, e realiza uma ação com base nele: (Este código se repete para as demais opções de movimento)
-
-```
-private void right_arrowMouseClicked(java.awt.event.MouseEvent evt) {                                         
-        RightMovement x = new RightMovement();
-        verify = false;// assume que nenhum bloco se movimentou
-        verify = x.goRight(game_board, verify);
-        Movement_Done();
-        check(game_board);
-    }
-
-```
-
 # Destaques de Pattern
 
 ## Diagrama do Pattern
@@ -139,7 +170,42 @@ private void right_arrowMouseClicked(java.awt.event.MouseEvent evt) {
 
 ## Código do Pattern
 
-`<addr>`
+```
+public class Frame extends javax.swing.JFrame {
+  ...
+  RightMovement r = new RightMovement();
+  ...
+  private void right_arrowMouseClicked(java.awt.event.MouseEvent evt) {                                         
+        verify = false;// assume que nenhum bloco se movimentou
+        verify = r.goRight(game_board, verify);
+        Movement_Done();
+        check(game_board);
+    }
+   ...
+
+```
+
+```
+public class RightMovement implements IMovement{
+    @Override
+    public boolean goRight(CBoard board, boolean verify){
+        int line = 0, column = 3;
+        while(line != 5){
+            while(column != -1){
+                if(board.matrix[line][column].value!=0){//se for um ValuableBlock
+                    verify = board.matrix[line][column].blockToRight(board, line, column, verify);
+                }
+                column --;
+            }
+            line ++;
+            column = 3;
+        } 
+       return verify;
+    }
+    ...
+}
+
+```
 
 # Conclusões e Trabalhos Futuros
 
