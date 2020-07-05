@@ -2,7 +2,6 @@
 
 ![](/Gameplay.png)
 
-
 # Descrição Resumida do Projeto
 
 * O jogo **NumberBlocks**, inspirado nos jogos "**2048**"(criado pelo italiano Gabriele Cirulli), e "**Threes**"(criado pelo designer de jogos Asher Vollmer), ambos lançados em 
@@ -453,3 +452,7 @@ goRight|Inicia o movimento dos blocos para a direita.
 goLeft|Inicia o movimento dos blocos para a esquerda.
 goUp|Inicia o movimento dos blocos para cima.
 goDown|Inicia o movimento dos blocos para baixo.
+
+# Plano de Exceções
+
+## Diagrama da hierarquia de exceções
