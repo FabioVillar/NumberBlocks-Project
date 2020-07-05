@@ -59,7 +59,7 @@ com uma série de dificuldades, como por exemplo muitos erros inesperados e "bug
 lição aprendida foi de melhorar o planejamento inicial do código a ser implementado, para minimizar a existência de bugs e erros, e também de aprender mais sobre os conceitos de 
 Design Patterns, essenciais para a codificação de um projeto como este, além de conhecer mais tipos destes padrões, pois, com um conhecimento aprofundado no assunto, a 
 codificação será facilitada, visto que os conceitos são empregados no relacionamento entre os objetos do programa. No diagrama do meu projeto, exibido mais abaixo, deixei clara
-a relação entre principalmente o componente Frame e o componente CMovement, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
+a relação entre principalmente a classe Frame e o componente CMovement, que funcionam como um "pilar" do jogo, já que se repetem a cada movimento realizado. A
 relação entre eles foi, inicialmente, não muito fácil de ser visualizada, porém, durante a codificação e a partir do momento em que eu comecei a me basear nos conceitos de 
 Design Patterns, a codificação foi facilitada, e o meu entendimento sobre o próprio código ficou bem mais claro.
 
@@ -92,7 +92,7 @@ public boolean analise_derrota(boolean x){
             column = 3;}
             
 ```
-* Método do componente Frame que modifica o tabuleiro do jogo (proveniente da interface IBoard), de acordo com as consequências do último movimento realizado pelo player:
+* Método da classe Frame que modifica o tabuleiro do jogo (proveniente da interface IBoard), de acordo com as consequências do último movimento realizado pelo player:
 
 ```
 
@@ -139,7 +139,7 @@ public boolean analise_derrota(boolean x){
 ```
 
 
-* Método do componente Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método atua em conjunto com o exibido acima)
+* Método da classe Frame que implementa um esquema de cores para os blocos do tabuleiro: (O código continua para mais possibilidades de valor dos blocos) (Este método atua em conjunto com o exibido acima)
 
 ```
 public void color(javax.swing.JTextField j){
@@ -203,8 +203,8 @@ public boolean goRight(IBoard board, boolean verify){
     }
 
 ```
-* O pattern deste código se baseia na combinação do componente Frame com o componente CMovement, que implementa a interface IMovement. Desta maneira, cada vez que o player 
-executa um movimento ao apertar em um dos componentes que representam as "arrows" da interface gráfica, um evento é realizado, e este é percebido pelo componente Frame. Esta, 
+* O pattern deste código se baseia na combinação da classe Frame com o componente CMovement, que implementa a interface IMovement. Desta maneira, cada vez que o player 
+executa um movimento ao apertar em um dos componentes que representam as "arrows" da interface gráfica, um evento é realizado, e este é percebido pela Frame. Esta, 
 por sua vez, possui um método para cada uma das quatro possibilidades de movimento, e, dependendo de qual o player escolheu, um dos quatro métodos de movimento de CMovement será 
 chamado pela interface IMovement, e receberá a informação do que aconteceu com a interface gráfica. Os métodos, por sua vez, também empregam outros métodos que envolvem outras 
 interfaces e classes, em um processo que se repete todas as vezes em que o player executa um movimento. Uma das vantagens dessa pattern é a possibilidade de reuso da classe de 
@@ -225,13 +225,18 @@ código, com uma implementação melhor dos conceitos de Design Patterns para to
 
 ![](/DiagramaProjeto.png)
 
+* Como visto no diagrama, a classe mais importante e "central" para o projeto é a classe **Frame**, que se relaciona com todas as outras classes do programa. O jogo se baseia
+na informação que a classe Frame recebe da interface gráfica criada, de acordo com o movimento desejado pelo player. Através da interacão de Frame com as interfaces IBoard e
+IBlock, é criado o tabuleiro com 25 objetos de IBlock, e, através do evento realizado pelo player ao selecionar um sentido de movimento, Frame chama a interface IMovement, 
+que se encarrega de iniciar o processo da movimentação dos blocos no tabuleiro, processo este que se repete a cada novo movimento executado pelo player.
+
 ## Diagrama Geral de Componentes
 
 ![](/DiagGeralComp.png)
 
 ## Componente CBoard
 
-Responsável por "cuidar" do tabuleiro do jogo. Possui uma matriz 5x5 de objetos do tipo CBlock, matriz esta que forma o tabuleiro do jogo. Além disso, possui um método 
+* Responsável por "cuidar" do tabuleiro do jogo. Possui uma matriz 5x5 de objetos do tipo CBlock, matriz esta que forma o tabuleiro do jogo. Além disso, possui um método 
 (analise_derrota) que faz uma análise em todo o tabuleiro para determinar se o player perdeu ou não o jogo, fora outro método (check_matrix), que funciona como uma etapa 
 anterior ao método "analise_derrota", ambos com o intuito de verificar se o player segue ou não no jogo.
 
