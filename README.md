@@ -226,7 +226,7 @@ código, com uma implementação melhor dos conceitos de Design Patterns para to
 
 ## Diagrama Geral de Componentes
 
-![](/DiagramaGeralComponentes.png)
+![](/DiagramaGeralComp.png)
 
 ## Componente CBoard
 
